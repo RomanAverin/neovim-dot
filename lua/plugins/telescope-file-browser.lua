@@ -5,6 +5,6 @@ return {
     local map = vim.api.nvim_set_keymap
 
     -- Keybinding for Telescope file_browser
-    map('n', '<leader>fb', [[<cmd>Telescope file_browser<CR>]], { noremap = true, silent = true })
+    map('n', '<space>fb', [[Telescope file_browser<CR>]], { noremap = true, silent = true })
   end
 }
