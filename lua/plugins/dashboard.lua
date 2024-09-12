@@ -35,7 +35,7 @@ return {
             key = "f",
           },
           {
-            desc = "KKeymaps",
+            desc = "Keymaps",
             group = "DiagnosticHint",
             action = "Telescope keymaps",
             key = "m",
