@@ -45,6 +45,7 @@ return {
           { LazyVim.lualine.pretty_path() },
         },
         lualine_x = {
+          LazyVim.lualine.cmp_source("codeium"),
           -- stylua: ignore
           {
             function() return require("noice").api.status.command.get() end,
