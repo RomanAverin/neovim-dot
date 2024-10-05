@@ -1,10 +1,6 @@
 return {
   "nvim-telescope/telescope.nvim",
-  keys = {
-    -- add a keymap to browse plugin files
-    -- stylua: ignore
-  },
-  -- change some options
+  -- keys = {},
   opts = {
     defaults = {
       layout_strategy = "horizontal",
