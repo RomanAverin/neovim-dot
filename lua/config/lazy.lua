@@ -19,7 +19,7 @@ require("lazy").setup({
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     -- Extras
-    { import = "lazyvim.plugins.extras.coding.codeium" },
+    -- { import = "lazyvim.plugins.extras.coding.codeium" },
     { import = "lazyvim.plugins.extras.coding.luasnip" },
     { import = "lazyvim.plugins.extras.editor.telescope" },
     { import = "lazyvim.plugins.extras.lang.docker" },
@@ -33,6 +33,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.ui.mini-indentscope" },
     { import = "lazyvim.plugins.extras.lang.typescript" },
     { import = "lazyvim.plugins.extras.lang.json" },
+    { import = "lazyvim.plugins.extras.lang.terraform" },
     -- import/override with your plugins
     { import = "plugins" },
   },
