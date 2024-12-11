@@ -14,9 +14,6 @@ vim.opt.smartindent = true
 vim.opt.guicursor =
   "n-v-c-sm:block,ci-ve:ver20,r-cr-o:hor20,i:ver20,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
 
--- Show current file in winbar
-vim.opt.winbar = "%=%m %f"
-
 -- Enable .editconfig
 vim.g.editorconfig = true
 
