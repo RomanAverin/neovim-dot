@@ -1,9 +1,9 @@
 return {
   "saghen/blink.cmp",
   opts = {
-    ignature = { enabled = true },
+    signature = { enabled = true },
     appearance = {
-      use_nvim_cmp_as_default = true,
+      use_nvim_cmp_as_default = false,
     },
     completion = {
       trigger = {
