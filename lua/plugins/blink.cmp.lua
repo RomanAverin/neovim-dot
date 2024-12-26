@@ -21,10 +21,14 @@ return {
         },
       },
       menu = {
-        border = "rounded",
-        draw = { gap = 2 },
+        border = "padded",
+        draw = { gap = 1 },
         -- winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine: BlinkCmpMenuSelection,Search:None",
       },
+    },
+    keymap = {
+      preset = "enter",
+      ["<C-i>"] = { "show", "show_documentation", "hide_documentation" },
     },
   },
 }
