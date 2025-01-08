@@ -1,9 +1,11 @@
 return {
   "saghen/blink.cmp",
+  version = "0.9.3",
   opts = {
     signature = { enabled = false },
     appearance = {
       use_nvim_cmp_as_default = false,
+      nerd_font_variant = "mono",
     },
     completion = {
       trigger = {
@@ -22,13 +24,19 @@ return {
       },
       menu = {
         border = "padded",
-        draw = { gap = 1 },
+        draw = {
+          columns = {
+            { "label", "label_description", gap = 1 },
+            { "kind_icon", "kind" },
+          },
+        },
         -- winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine: BlinkCmpMenuSelection,Search:None",
       },
     },
     keymap = {
-      preset = "enter",
+      preset = "super-tab",
       ["<C-i>"] = { "show", "show_documentation", "hide_documentation" },
+      ["<CR>"] = { "accept", "fallback" },
     },
   },
 }
