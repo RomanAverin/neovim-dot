@@ -1,6 +1,7 @@
 return {
   "saghen/blink.cmp",
-  version = "0.9.3",
+  version = "*",
+  build = "cargo build --release",
   opts = {
     signature = { enabled = false },
     appearance = {
