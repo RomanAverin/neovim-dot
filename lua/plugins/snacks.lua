@@ -4,5 +4,10 @@ return {
     indent = {
       enabled = false,
     },
+    toggle = {
+      color = {
+        enabled = "blue",
+      },
+    },
   },
 }
