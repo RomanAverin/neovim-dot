@@ -12,9 +12,15 @@ return {
       trigger = {
         show_on_insert_on_trigger_character = false,
       },
-
       ghost_text = {
         enabled = false,
+      },
+      -- Insert completion item on selection, don't select by default
+      list = {
+        selection = {
+          preselect = true,
+          auto_insert = false,
+        },
       },
       -- Show documentation when selecting a completion item
       documentation = {
