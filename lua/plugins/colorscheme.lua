@@ -10,7 +10,14 @@ return {
       vim.g.sonokai_better_performance = 1
       vim.g.sonokai_disable_terminal_colors = 1
       vim.g.sonokai_diagnostic_line_highlight = 1
+      -- vim.g.sonokai_style = "maia"
     end,
+  },
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
   },
   {
     "olimorris/onedarkpro.nvim",
@@ -21,27 +28,26 @@ return {
     name = "catppuccin",
     priority = 1000,
     opts = {
-      background = { -- :h background
-        light = "latter",
-        dark = "mocha",
-      },
-      color_overrides = {
-        all = {
-          -- base = "#33353f",
-        },
-      },
+      flavour = "macchiato", -- latte, frappe, macchiato, mocha
+      -- color_overrides = {
+      --   all = {
+      --     base = "#262B31",
+      --   },
+      -- },
     },
   },
   {
-    dir = "~/Develop/austere.nvim",
-    name = "austere",
+    dir = "~/Develop/charleston.nvim/",
+    name = "charleston",
     priority = 1000,
-    opts = {},
+    -- opts = {
+    --   dimmed_background = true,
+    -- },
   },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "austere",
+      colorscheme = "charleston",
     },
   },
 }
