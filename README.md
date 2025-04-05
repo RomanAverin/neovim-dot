@@ -1,9 +1,9 @@
 # A fairly simple neovim configuration based on 💤 LazyVim
 
-You can read more [documentation](https://lazyvim.github.io/installation) to get started.
+You can read more lazyvim [documentation](https://lazyvim.github.io/installation) to get started.
+Install before use:
 
-![Dashboard](./Screenshot01.png)
-
-![Editor](./Screenshot02.png)
-
-![Keybindings hints](./Screenshot03.png)
+- fzf
+- fd
+- rust
+- golang
