@@ -34,8 +34,9 @@ return {
         draw = {
           columns = {
             { "label", "label_description", gap = 1 },
-            { "kind_icon", "kind" },
+            { "kind_icon", "kind", "source_name" },
           },
+          treesitter = {},
         },
         -- winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine: BlinkCmpMenuSelection,Search:None",
       },
@@ -50,6 +51,8 @@ return {
       ["<C-n>"] = { "select_next", "fallback" },
       ["<C-k>"] = { "select_prev", "fallback" },
       ["<C-j>"] = { "select_next", "fallback" },
+      ["<C-b>"] = { "scroll_documentation_up", "fallback" },
+      ["<C-f>"] = { "scroll_documentation_down", "fallback" },
     },
   },
 }
