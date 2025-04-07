@@ -15,5 +15,10 @@ vim.opt.guicursor =
   "n-v-c-sm:block,ci-ve:ver20,r-cr-o:hor20,i:ver20,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
 -- vim.opt.guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,t:ver25"
 
+-- lsp_line config
+vim.diagnostic.config({ virtual_lines = { highlight_whole_line = false } })
+
 -- Enable .editconfig
 vim.g.editorconfig = true
+
+vim.g.have_nerd_font = true
