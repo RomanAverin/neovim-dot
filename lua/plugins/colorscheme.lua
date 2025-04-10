@@ -37,7 +37,7 @@ return {
     },
   },
   {
-    dir = "~/Develop/charleston.nvim/",
+    "romanaverin/charleston.nvim",
     name = "charleston",
     priority = 1000,
     -- opts = {
