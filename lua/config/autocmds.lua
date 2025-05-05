@@ -3,6 +3,8 @@
 -- Add any additional autocmds here
 --
 -- Must be declared before executing ':colorscheme'.
+
+-- Sonokai colorscheme overriode
 local grpid = vim.api.nvim_create_augroup("custom_highlights_sonokai", {})
 vim.api.nvim_create_autocmd("ColorScheme", {
   group = grpid,
@@ -15,16 +17,5 @@ vim.api.nvim_create_autocmd("ColorScheme", {
     set_hl("Visual", palette.none, palette.grey_dim)
     set_hl("IncSearch", palette.bg0, palette.yellow)
     set_hl("Search", palette.none, palette.diff_yellow)
-  end,
-})
-
--- lsp_line disable for the Lazy floating window
-vim.api.nvim_create_autocmd("WinEnter", {
-  callback = function()
-    local floating = vim.api.nvim_win_get_config(0).relative ~= ""
-    vim.diagnostic.config({
-      virtual_text = floating,
-      virtual_lines = not floating,
-    })
   end,
 })
