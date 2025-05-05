@@ -18,7 +18,24 @@ return {
     priority = 1000, -- Ensure it loads first
   },
   {
+<<<<<<< HEAD
     dir = "~/Develop/charleston.nvim/",
+=======
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    opts = {
+      flavour = "macchiato", -- latte, frappe, macchiato, mocha
+      -- color_overrides = {
+      --   all = {
+      --     base = "#262B31",
+      --   },
+      -- },
+    },
+  },
+  {
+    "romanaverin/charleston.nvim",
+>>>>>>> origin/HEAD
     name = "charleston",
     priority = 1000,
     -- opts = {
