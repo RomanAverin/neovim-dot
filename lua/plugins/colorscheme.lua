@@ -19,7 +19,6 @@ return {
   },
   {
     "romanaverin/charleston.nvim",
->>>>>>> origin/HEAD
     name = "charleston",
     priority = 1000,
     -- opts = {
