@@ -14,27 +14,8 @@ return {
     end,
   },
   {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {},
-  },
-  {
     "olimorris/onedarkpro.nvim",
     priority = 1000, -- Ensure it loads first
-  },
-  {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    priority = 1000,
-    opts = {
-      flavour = "macchiato", -- latte, frappe, macchiato, mocha
-      -- color_overrides = {
-      --   all = {
-      --     base = "#262B31",
-      --   },
-      -- },
-    },
   },
   {
     dir = "~/Develop/charleston.nvim/",
