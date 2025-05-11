@@ -8,6 +8,14 @@ return {
       use_nvim_cmp_as_default = false,
       nerd_font_variant = "mono",
     },
+    sources = {
+      per_filetype = {
+        lua = { "lsp", "buffer", "path", "snippets" },
+        markdown = { "buffer", "path" },
+        text = { "buffer", "path" },
+        ps1 = { "lsp", "buffer", "path", "snippets" },
+      },
+    },
     completion = {
       trigger = {
         show_on_insert_on_trigger_character = false,
