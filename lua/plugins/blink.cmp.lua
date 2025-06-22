@@ -49,8 +49,19 @@ return {
         -- winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine: BlinkCmpMenuSelection,Search:None",
       },
     },
+    -- SuperTab preset
     keymap = {
-      preset = "super-tab",
+      ["<Tab>"] = {
+        function(cmp)
+          if cmp.snippet_active() then
+            return cmp.accept()
+          else
+            return cmp.select_and_accept()
+          end
+        end,
+        "snippet_forward",
+        "fallback",
+      },
       ["<C-i>"] = { "show", "show_documentation", "hide_documentation" },
       ["<CR>"] = { "accept", "fallback" },
       ["<Up>"] = { "select_prev", "fallback" },
