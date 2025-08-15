@@ -25,4 +25,5 @@ vim.opt.guicursor =
 -- Enable .editconfig
 vim.g.editorconfig = true
 
+-- Nerd font suppurt
 vim.g.have_nerd_font = true
