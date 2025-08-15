@@ -13,7 +13,7 @@ vim.keymap.set("n", "<leader>ur", function()
   end)
 end, { desc = "Reload plugin" })
 
--- Toggle diagnostic virtual_lines or virtual_text
+-- Toggle diagnostic virtual_lines
 vim.keymap.set("n", "<leader>uv", function()
   local virtual_lines_config = not vim.diagnostic.config().virtual_lines
   local config = vim.diagnostic.config()
