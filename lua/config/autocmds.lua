@@ -20,6 +20,7 @@ vim.api.nvim_create_autocmd("ColorScheme", {
   end,
 })
 
+-- Disable diagnostic for the env files
 local lsp_hacks = vim.api.nvim_create_augroup("LspHacks", { clear = true })
 
 vim.api.nvim_create_autocmd({ "BufNewFile", "BufReadPost" }, {
