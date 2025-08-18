@@ -20,7 +20,7 @@ vim.opt.breakindent = true
 
 -- Cursor shape
 vim.opt.guicursor =
-  "n-v-c-sm:block,ci-ve:ver20,r-cr-o:hor20,i:ver20,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
+  "n-v-c-sm:block,ci-ve:ver20,r-cr:block,o:hor50,i:ver20,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
 
 -- Enable .editconfig
 vim.g.editorconfig = true
