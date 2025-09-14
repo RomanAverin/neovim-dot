@@ -1,48 +1,79 @@
 return {
   "olimorris/codecompanion.nvim",
   dependencies = {
-    "nvim-lua/plenary.nvim",
-    "nvim-treesitter/nvim-treesitter",
+    { "nvim-lua/plenary.nvim", branch = "master" },
     "ravitemer/mcphub.nvim",
+    { "MeanderingProgrammer/render-markdown.nvim", ft = "markdown" },
   },
   opts = {
+    language = "Russian",
     display = {
       action_palette = {
-        -- width = 95,
-        -- height = 10,
+        width = 95,
+        height = 10,
         prompt = "Prompt ", -- Prompt used for interactive LLM calls
-        provider = "fzf_lua", -- Can be "default", "telescope", "fzf_lua", "mini_pick" or "snacks". If not specified, the plugin will autodetect installed providers.
+        provider = "snacks", -- Can be "default", "telescope", "fzf_lua", "mini_pick" or "snacks". If not specified, the plugin will autodetect installed providers.
         opts = {
           show_default_actions = true, -- Show the default actions in the action palette?
           show_default_prompt_library = true, -- Show the default prompt library in the action palette?
+          title = "CodeCompanion actions",
+        },
+        chat = {
+          show_token_count = true,
+          start_in_insert_mode = true,
         },
       },
     },
     adapters = {
-      anthropic = function()
-        return require("codecompanion.adapters").extend("anthropic", {
-          env = {
-            api_key = vim.env.ANTROPIC_API_KEY,
-          },
-        })
-      end,
+      http = {
+        anthropic = function()
+          return require("codecompanion.adapters").extend("anthropic", {
+            env = {
+              -- api_key = vim.env.ANTROPIC_API_KEY,
+              api_key = "cmd:op read op://personal/Antropic_nvim_apikey/password --no-newline",
+            },
+          })
+        end,
+        openai = function()
+          return require("codecompanion.adapters").extend("openai", {
+            opts = {
+              vision = true,
+              stream = true,
+            },
+            schema = {
+              model = {
+                default = "gpt-5-mini",
+              },
+            },
+          })
+        end,
+      },
       opts = {
+        show_model_choices = true,
         allow_insecure = true,
         proxy = "socks5://127.0.0.1:1081",
       },
     },
     strategies = {
       chat = {
-        adapter = "anthropic",
-        model = "claude-sonnet-4-latest",
+        adapter = "openai",
+        model = "gpt-5-mini",
+        slash_commands = {
+          ["file"] = {
+            -- Location to the slash command in CodeCompanion
+            callback = "strategies.chat.slash_commands.file",
+            description = "Select a file using fzf",
+            opts = {
+              provider = "fzf_lua", -- Can be "default", "telescope", "fzf_lua", "mini_pick" or "snacks"
+              contains_code = true,
+            },
+          },
+        },
       },
-      inline = {
-        adapter = "anthropic",
-      },
-      cmd = {
-        adapter = "anthropic",
-      },
+      inline = { adapter = "openai", model = "gpt-5-mini" },
+      cmd = { adapter = "openai", model = "gpt-5-mini" },
     },
+
     extensions = {
       mcphub = {
         callback = "mcphub.extensions.codecompanion",
