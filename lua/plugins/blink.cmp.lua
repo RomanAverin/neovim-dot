@@ -16,6 +16,10 @@ return {
         ps1 = { "lsp", "buffer", "path", "snippets" },
       },
     },
+    cmdline = {
+      keymap = { preset = "inherit" },
+      completion = { menu = { auto_show = true } },
+    },
     completion = {
       trigger = {
         show_on_insert_on_trigger_character = false,
