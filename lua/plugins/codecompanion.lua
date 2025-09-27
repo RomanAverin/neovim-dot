@@ -47,6 +47,24 @@ return {
                 default = "gpt-5-mini",
               },
             },
+            env = {
+              api_key = "cmd:op read op://Private/CodeCompanion_ChatGPT_API/password --no-newline",
+            },
+          })
+        end,
+        openrouter = function()
+          return require("codecompanion.adapters").extend("openai_compatible", {
+            env = {
+              url = "https://openrouter.ai/api",
+              -- api_key = "OPENROUTER_API_KEY",
+              api_key = "cmd:op read op://Private/CodeCompanion_OpenRoute_API/password --no-newline",
+              chat_url = "/v1/chat/completions",
+            },
+            schema = {
+              model = {
+                default = "gpt-5-mini",
+              },
+            },
           })
         end,
       },
