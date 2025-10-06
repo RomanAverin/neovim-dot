@@ -7,6 +7,9 @@ return {
     "ravitemer/mcphub.nvim",
     { "MeanderingProgrammer/render-markdown.nvim", ft = "markdown" },
   },
+  init = function()
+    require("codecompanion-notify"):init()
+  end,
   opts = {
     language = "Russian",
     display = {
@@ -76,8 +79,8 @@ return {
     },
     strategies = {
       chat = {
-        adapter = "openai",
-        model = "gpt-5-mini",
+        adapter = "openrouter",
+        model = "claude-sonnet-4.5",
         slash_commands = {
           ["file"] = {
             -- Location to the slash command in CodeCompanion
@@ -90,8 +93,8 @@ return {
           },
         },
       },
-      inline = { adapter = "openai", model = "gpt-5-mini" },
-      cmd = { adapter = "openai", model = "gpt-5-mini" },
+      inline = { adapter = "openrouter", model = "gpt-5-mini" },
+      cmd = { adapter = "openrouter", model = "gpt-5-mini" },
     },
 
     extensions = {
