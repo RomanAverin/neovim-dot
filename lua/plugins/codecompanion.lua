@@ -32,10 +32,23 @@ return {
     adapters = {
       http = {
         anthropic = function()
-          return require("codecompanion.adapters").extend("anthropic", {
-            env = {
-              -- api_key = vim.env.ANTROPIC_API_KEY,
-              api_key = "cmd:op read op://personal/Antropic_nvim_apikey/password --no-newline",
+          -- return require("codecompanion.adapters").extend("anthropic", {
+          --   env = {
+          --     -- api_key = vim.env.ANTROPIC_API_KEY,
+          --     api_key = "cmd:op read op://personal/Antropic_nvim_apikey/password --no-newline",
+          --   },
+          -- })
+          require("codecompanion").setup({
+            adapters = {
+              acp = {
+                claude_code = function()
+                  return require("codecompanion.adapters").extend("claude_code", {
+                    env = {
+                      CLAUDE_CODE_OAUTH_TOKEN = "cmd:op read op://personal/CodeCompanion_Anthropic_Oauth_API/password --no-newline",
+                    },
+                  })
+                end,
+              },
             },
           })
         end,
