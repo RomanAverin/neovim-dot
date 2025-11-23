@@ -3,9 +3,11 @@ return {
   opts = {
     diagnostics = {
       virtual_text = false,
-      virtual_lines = { current_line = true },
+      float = {
+        border = "rounded", -- or "single", "double", "solid", "shadow"
+        source = "always",
+      },
     },
-    -- inlay_hints = { enabled = true },
     servers = {
       jinja_lsp = {
         filetypes = { "jinja", "html", "j2" },
