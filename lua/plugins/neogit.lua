@@ -5,5 +5,8 @@ return {
     "sindrets/diffview.nvim", -- optional - Diff integration
     "ibhagwan/fzf-lua", -- required
   },
-  config = true,
+  opts = {
+    remember_settings = true,
+  },
+  -- config = true,
 }
