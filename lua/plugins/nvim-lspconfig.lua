@@ -3,6 +3,7 @@ return {
   opts = {
     diagnostics = {
       virtual_text = false,
+      underline = true,
       float = {
         border = "rounded", -- or "single", "double", "solid", "shadow"
         source = "always",
