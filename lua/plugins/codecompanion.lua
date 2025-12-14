@@ -2,7 +2,7 @@ return {
   "olimorris/codecompanion.nvim",
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
-    "franco-ruggeri/codecompanion-spinner.nvim",
+    -- "franco-ruggeri/codecompanion-spinner.nvim",
     { "nvim-lua/plenary.nvim", branch = "master" },
     "ravitemer/mcphub.nvim",
     { "MeanderingProgrammer/render-markdown.nvim", ft = "markdown" },
@@ -72,7 +72,6 @@ return {
           return require("codecompanion.adapters").extend("openai_compatible", {
             env = {
               url = "https://openrouter.ai/api",
-              -- api_key = "OPENROUTER_API_KEY",
               api_key = "cmd:op read op://Private/CodeCompanion_OpenRoute_API/password --no-newline",
               chat_url = "/v1/chat/completions",
             },
@@ -90,10 +89,9 @@ return {
         proxy = "socks5://127.0.0.1:1081",
       },
     },
-    strategies = {
+    interactions = {
       chat = {
-        adapter = "openrouter",
-        model = "claude-sonnet-4.5",
+        adapter = { name = "openrouter", model = "claude-sonnet-4.5" },
         slash_commands = {
           ["file"] = {
             -- Location to the slash command in CodeCompanion
@@ -106,12 +104,12 @@ return {
           },
         },
       },
-      inline = { adapter = "openrouter", model = "gpt-5-mini" },
-      cmd = { adapter = "openrouter", model = "gpt-5-mini" },
+      inline = { adapter = { name = "openrouter", model = "gpt-5-mini" } },
+      cmd = { adapter = { name = "openrouter", model = "gpt-5-mini" } },
     },
 
     extensions = {
-      spinner = {},
+      -- spinner = {},
       mcphub = {
         callback = "mcphub.extensions.codecompanion",
         opts = {
