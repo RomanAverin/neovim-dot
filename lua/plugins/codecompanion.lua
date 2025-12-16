@@ -2,9 +2,9 @@ return {
   "olimorris/codecompanion.nvim",
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
-    -- "franco-ruggeri/codecompanion-spinner.nvim",
     { "nvim-lua/plenary.nvim", branch = "master" },
     "ravitemer/mcphub.nvim",
+    "ibhagwan/fzf-lua",
     { "MeanderingProgrammer/render-markdown.nvim", ft = "markdown" },
   },
   init = function()
@@ -23,35 +23,32 @@ return {
           show_default_prompt_library = true, -- Show the default prompt library in the action palette?
           title = "CodeCompanion actions",
         },
-        chat = {
-          show_token_count = true,
-          start_in_insert_mode = true,
+      },
+      chat = {
+        icons = {
+          chat_fold = " ",
+        },
+        separator = "━━━",
+        show_token_count = true,
+        start_in_insert_mode = false,
+        window = {
+          layout = "float", -- float|vertical|horizontal|buffer
+        },
+        floating_window = {
+          opts = {
+            wrap = true,
+            number = false,
+            relativenumber = false,
+          },
         },
       },
     },
+
+    --
+    -- Adapters configuration
+    --
     adapters = {
       http = {
-        anthropic = function()
-          -- return require("codecompanion.adapters").extend("anthropic", {
-          --   env = {
-          --     -- api_key = vim.env.ANTROPIC_API_KEY,
-          --     api_key = "cmd:op read op://personal/Antropic_nvim_apikey/password --no-newline",
-          --   },
-          -- })
-          require("codecompanion").setup({
-            adapters = {
-              acp = {
-                claude_code = function()
-                  return require("codecompanion.adapters").extend("claude_code", {
-                    env = {
-                      CLAUDE_CODE_OAUTH_TOKEN = "cmd:op read op://personal/CodeCompanion_Anthropic_Oauth_API/password --no-newline",
-                    },
-                  })
-                end,
-              },
-            },
-          })
-        end,
         openai = function()
           return require("codecompanion.adapters").extend("openai", {
             opts = {
@@ -60,7 +57,7 @@ return {
             },
             schema = {
               model = {
-                default = "gpt-5-mini",
+                default = "gpt-5",
               },
             },
             env = {
@@ -77,21 +74,26 @@ return {
             },
             schema = {
               model = {
-                default = "gpt-5-mini",
+                default = "x-ai/grok-code-fast-1",
               },
             },
           })
         end,
-      },
-      opts = {
-        show_model_choices = true,
-        allow_insecure = true,
-        proxy = "socks5://127.0.0.1:1081",
+        opts = {
+          show_model_choices = true,
+          allow_insecure = true,
+          proxy = "socks5://127.0.0.1:1081",
+        },
       },
     },
+
+    --
+    -- Interactions
+    --
     interactions = {
       chat = {
-        adapter = { name = "openrouter", model = "claude-sonnet-4.5" },
+        adapter = { name = "openrouter", model = "x-ai/grok-code-fast-1" },
+
         slash_commands = {
           ["file"] = {
             -- Location to the slash command in CodeCompanion
@@ -104,16 +106,14 @@ return {
           },
         },
       },
-      inline = { adapter = { name = "openrouter", model = "gpt-5-mini" } },
-      cmd = { adapter = { name = "openrouter", model = "gpt-5-mini" } },
+      inline = { adapter = { name = "openrouter", model = "x-ai/grok-code-fast-1" } },
+      cmd = { adapter = { name = "openrouter", model = "x-ai/grok-code-fast-1" } },
     },
 
     extensions = {
-      -- spinner = {},
       mcphub = {
         callback = "mcphub.extensions.codecompanion",
         opts = {
-          make_vars = true,
           make_slash_commands = true,
           show_result_in_chat = true,
         },
