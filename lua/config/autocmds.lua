@@ -43,3 +43,36 @@ vim.api.nvim_create_autocmd("TextYankPost", {
     copy_to_unnamed(vim.v.event.regcontents)
   end,
 })
+
+-- Inspector of highlight
+local function load_inspector()
+  local ok, inspector = pcall(require, "inspector")
+  if not ok then
+    vim.notify("Failed to load inspector module: " .. inspector, vim.log.levels.ERROR)
+    return nil
+  end
+  return inspector
+end
+-- Keymap
+vim.keymap.set("n", "<c-i>", function()
+  local inspector = load_inspector()
+  if inspector then
+    inspector.inspect() -- Toggle: 1st call = auto-close, 2nd call = focus mode
+  end
+end, {
+  desc = "Inspect highlight under cursor (toggle focus)",
+  noremap = true,
+  silent = true,
+})
+
+-- Global command
+vim.api.nvim_create_user_command("Inspector", function()
+  local inspector = load_inspector()
+  if inspector then
+    inspector.inspect()
+  end
+end, {
+  desc = "Inspect highlight under cursor (toggle focus)",
+  nargs = 0,
+})
+
