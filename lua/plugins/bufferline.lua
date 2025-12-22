@@ -1,9 +1,14 @@
 return {
   "akinsho/bufferline.nvim",
-  optional = true,
+  after = "charleston",
+  -- dependencies = { "charleston" },
   opts = {
+    highlights = function()
+      return require("charleston.bufferline").get_theme()
+    end,
     options = {
       separator_style = "slant",
+      always_show_bufferline = false,
       show_tab_indicators = true,
     },
   },
