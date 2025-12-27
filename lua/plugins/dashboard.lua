@@ -24,7 +24,7 @@ return {
         { icon = " ", title = "Projects", section = "projects", indent = 2, padding = 1 },
         { section = "startup" },
       },
-      bigfile = { enabled = true },
+      bigfile = { enabled = false },
       notifier = { enabled = true },
       quickfile = { enabled = true },
       statuscolumn = { enabled = true },
