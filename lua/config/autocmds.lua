@@ -54,7 +54,7 @@ local function load_inspector()
   return inspector
 end
 -- Keymap
-vim.keymap.set("n", "<c-i>", function()
+vim.keymap.set("n", "<a-i>", function()
   local inspector = load_inspector()
   if inspector then
     inspector.inspect() -- Toggle: 1st call = auto-close, 2nd call = focus mode
@@ -75,4 +75,3 @@ end, {
   desc = "Inspect highlight under cursor (toggle focus)",
   nargs = 0,
 })
-
