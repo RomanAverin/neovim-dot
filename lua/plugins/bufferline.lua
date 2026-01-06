@@ -7,7 +7,7 @@ return {
       return require("charleston.bufferline").get_theme()
     end,
     options = {
-      separator_style = "slant",
+      separator_style = "splope",
       always_show_bufferline = false,
       show_tab_indicators = true,
     },
