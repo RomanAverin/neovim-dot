@@ -29,5 +29,5 @@ vim.g.editorconfig = true
 vim.g.have_nerd_font = true
 
 -- Spell checking
-vim.opt.spell = true
+vim.opt.spell = false
 vim.opt.spelllang = { "ru", "en" }
