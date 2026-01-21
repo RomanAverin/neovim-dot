@@ -13,6 +13,17 @@ return {
       jinja_lsp = {
         filetypes = { "jinja", "html", "j2" },
       },
+      pyright = {
+        settings = {
+          python = {
+            analysis = {
+              typeCheckingMode = "basic",
+              diagnosticMode = "openFilesOnly",
+              useLibraryCodeForTypes = true,
+            },
+          },
+        },
+      },
     },
   },
 }
